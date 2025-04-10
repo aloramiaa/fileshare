@@ -1,0 +1,848 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 10% 4%;
+    --foreground: 0 0% 95%;
+    --card: 220 10% 6%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 10% 6%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 345 100% 50%;
+    --primary-rgb: 255, 0, 60;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 70% 10%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 30% 10%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 345 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 30% 12%;
+    --input: 220 30% 12%;
+    --ring: 345 100% 50%;
+    --radius: 0;
+
+    /* Dystopian Cyberpunk colors */
+    --toxic-red: 345 100% 50%;
+    --toxic-red-rgb: 255, 0, 60;
+    --acid-green: 85 100% 50%;
+    --acid-green-rgb: 0, 255, 60;
+    --digital-blue: 195 100% 50%;
+    --digital-blue-rgb: 0, 195, 255;
+    --warning-yellow: 45 100% 50%;
+    --warning-yellow-rgb: 255, 204, 0;
+    --cyber-black: 220 10% 4%;
+    --cyber-black-rgb: 10, 11, 15;
+    --cyber-gray: 220 5% 15%;
+    --cyber-gray-rgb: 36, 38, 43;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: linear-gradient(to bottom, rgba(var(--cyber-black-rgb), 0.95), rgba(var(--cyber-black-rgb), 0.98)),
+      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L90 10 L90 90 L10 90 Z' fill='none' stroke='rgba(255, 0, 60, 0.1)' stroke-width='0.5'/%3E%3Cpath d='M30 10 L30 90 M50 10 L50 90 M70 10 L70 90 M10 30 L90 30 M10 50 L90 50 M10 70 L90 70' stroke='rgba(255, 0, 60, 0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+  }
+}
+
+/* Dystopian Cyberpunk Animations */
+@keyframes harsh-glitch {
+  0% {
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    transform: translate(20px);
+    opacity: 0.8;
+  }
+  20% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    transform: translate(-20px);
+    opacity: 1;
+  }
+  30% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    transform: translate(15px);
+    opacity: 0.7;
+  }
+  40% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+    transform: translate(-15px);
+    opacity: 0.9;
+  }
+  50% {
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    transform: translate(0);
+    opacity: 0.6;
+  }
+  55% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    transform: translate(10px);
+    opacity: 1;
+  }
+  60% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    transform: translate(-10px);
+    opacity: 0.8;
+  }
+  65% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    transform: translate(15px);
+    opacity: 0.7;
+  }
+  70% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    transform: translate(-15px);
+    opacity: 0.9;
+  }
+  80% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    transform: translate(20px);
+    opacity: 0.6;
+  }
+  85% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%);
+    transform: translate(-20px);
+    opacity: 1;
+  }
+  95% {
+    clip-path: polygon(0 72%, 100% 72%, 100% 78%, 0 78%);
+    transform: translate(0);
+    opacity: 0.8;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes digital-noise {
+  0%,
+  100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes static-lines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -100px;
+  }
+}
+
+@keyframes broken-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  8%,
+  10% {
+    opacity: 0.4;
+  }
+  12%,
+  20% {
+    opacity: 0.8;
+  }
+  22%,
+  24% {
+    opacity: 0.3;
+  }
+  26%,
+  28% {
+    opacity: 0.7;
+  }
+  30%,
+  36% {
+    opacity: 0.5;
+  }
+  38%,
+  40% {
+    opacity: 0.9;
+  }
+  42%,
+  44% {
+    opacity: 0.2;
+  }
+  46%,
+  48% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes warning-flash {
+  0%,
+  100% {
+    background-color: rgba(var(--toxic-red-rgb), 0.1);
+    box-shadow: 0 0 5px rgba(var(--toxic-red-rgb), 0.5);
+  }
+  50% {
+    background-color: rgba(var(--toxic-red-rgb), 0.2);
+    box-shadow: 0 0 15px rgba(var(--toxic-red-rgb), 0.8);
+  }
+}
+
+@keyframes data-corruption {
+  0% {
+    transform: skewX(0deg);
+  }
+  20% {
+    transform: skewX(2deg);
+  }
+  40% {
+    transform: skewX(-2deg);
+  }
+  60% {
+    transform: skewX(1deg);
+  }
+  80% {
+    transform: skewX(-1deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes surveillance-scan {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    background-position: 0% 100%;
+    opacity: 0.1;
+  }
+}
+
+@keyframes toxic-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(var(--toxic-red-rgb), 0.8);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(var(--toxic-red-rgb), 1), 0 0 30px rgba(var(--toxic-red-rgb), 0.5);
+  }
+}
+
+@keyframes acid-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(var(--acid-green-rgb), 0.8);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(var(--acid-green-rgb), 1), 0 0 30px rgba(var(--acid-green-rgb), 0.5);
+  }
+}
+
+@keyframes digital-distortion {
+  0% {
+    transform: translate(0) skew(0deg);
+  }
+  20% {
+    transform: translate(2px, -2px) skew(1deg);
+  }
+  40% {
+    transform: translate(-2px, 1px) skew(-1deg);
+  }
+  60% {
+    transform: translate(1px, 2px) skew(0.5deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) skew(-0.5deg);
+  }
+  100% {
+    transform: translate(0) skew(0deg);
+  }
+}
+
+@keyframes warning-blink {
+  0%,
+  49% {
+    background-color: rgba(var(--toxic-red-rgb), 0.2);
+  }
+  50%,
+  100% {
+    background-color: rgba(var(--warning-yellow-rgb), 0.2);
+  }
+}
+
+/* Dystopian Cyberpunk Utility Classes */
+.dystopian-glitch {
+  position: relative;
+  animation: harsh-glitch 3s infinite;
+  animation-play-state: running;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dystopian-glitch::before,
+.dystopian-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dystopian-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 rgba(var(--toxic-red-rgb), 1);
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  animation: harsh-glitch 2.5s infinite;
+  animation-play-state: inherit;
+}
+
+.dystopian-glitch::after {
+  left: -2px;
+  text-shadow: 2px 0 rgba(var(--acid-green-rgb), 1);
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  animation: harsh-glitch 2.5s infinite reverse;
+  animation-play-state: inherit;
+}
+
+.static-overlay {
+  position: relative;
+}
+
+.static-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 10;
+  animation: digital-noise 0.5s infinite;
+}
+
+.scan-lines {
+  position: relative;
+}
+
+.scan-lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent 50%, rgba(var(--toxic-red-rgb), 0.05) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+  animation: static-lines 10s linear infinite;
+}
+
+.broken-flicker {
+  animation: broken-flicker 4s linear infinite;
+}
+
+.toxic-text {
+  color: hsl(var(--toxic-red));
+  text-shadow: 0 0 5px rgba(var(--toxic-red-rgb), 0.8);
+  animation: toxic-pulse 2s ease-in-out infinite;
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.acid-text {
+  color: hsl(var(--acid-green));
+  text-shadow: 0 0 5px rgba(var(--acid-green-rgb), 0.8);
+  animation: acid-pulse 2s ease-in-out infinite;
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.digital-text {
+  color: hsl(var(--digital-blue));
+  text-shadow: 0 0 5px rgba(var(--digital-blue-rgb), 0.8);
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.warning-text {
+  color: hsl(var(--warning-yellow));
+  text-shadow: 0 0 5px rgba(var(--warning-yellow-rgb), 0.8);
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dystopian-border {
+  border: 1px solid rgba(var(--toxic-red-rgb), 0.5);
+  box-shadow: 0 0 5px rgba(var(--toxic-red-rgb), 0.3), inset 0 0 5px rgba(var(--toxic-red-rgb), 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.dystopian-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(var(--toxic-red-rgb), 0.5);
+  animation: warning-flash 2s infinite;
+  pointer-events: none;
+}
+
+.acid-border {
+  border: 1px solid rgba(var(--acid-green-rgb), 0.5);
+  box-shadow: 0 0 5px rgba(var(--acid-green-rgb), 0.3), inset 0 0 5px rgba(var(--acid-green-rgb), 0.3);
+}
+
+.warning-border {
+  border: 1px solid rgba(var(--warning-yellow-rgb), 0.5);
+  box-shadow: 0 0 5px rgba(var(--warning-yellow-rgb), 0.3), inset 0 0 5px rgba(var(--warning-yellow-rgb), 0.3);
+}
+
+.dystopian-bg {
+  background-color: rgba(var(--cyber-black-rgb), 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.dystopian-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+      0deg,
+      rgba(var(--toxic-red-rgb), 0.05) 0px,
+      rgba(var(--toxic-red-rgb), 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(var(--toxic-red-rgb), 0.05) 0px,
+      rgba(var(--toxic-red-rgb), 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.surveillance-bg {
+  position: relative;
+}
+
+.surveillance-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(var(--toxic-red-rgb), 0.1), transparent);
+  background-size: 100% 50px;
+  animation: surveillance-scan 3s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.digital-distortion {
+  animation: digital-distortion 2s ease-in-out infinite;
+}
+
+.warning-flash {
+  animation: warning-flash 2s infinite;
+}
+
+.warning-blink {
+  animation: warning-blink 1s infinite;
+}
+
+.data-corruption {
+  animation: data-corruption 3s ease-in-out infinite;
+}
+
+.dystopian-card {
+  background: rgba(var(--cyber-black-rgb), 0.8);
+  border: 1px solid rgba(var(--toxic-red-rgb), 0.3);
+  box-shadow: 0 0 10px rgba(var(--toxic-red-rgb), 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.dystopian-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--toxic-red-rgb), 0.5),
+    rgba(var(--acid-green-rgb), 0.5),
+    rgba(var(--toxic-red-rgb), 0.5)
+  );
+  z-index: 1;
+}
+
+.dystopian-input {
+  background: rgba(var(--cyber-black-rgb), 0.8);
+  border: 1px solid rgba(var(--toxic-red-rgb), 0.3);
+  color: hsl(var(--foreground));
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.dystopian-input:focus {
+  border-color: rgba(var(--toxic-red-rgb), 0.8);
+  box-shadow: 0 0 10px rgba(var(--toxic-red-rgb), 0.3);
+  outline: none;
+}
+
+.dystopian-button {
+  background: rgba(var(--cyber-black-rgb), 0.8);
+  border: 1px solid rgba(var(--toxic-red-rgb), 0.5);
+  color: hsl(var(--toxic-red));
+  text-shadow: 0 0 5px rgba(var(--toxic-red-rgb), 0.8);
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dystopian-button:hover {
+  background: rgba(var(--toxic-red-rgb), 0.2);
+  box-shadow: 0 0 15px rgba(var(--toxic-red-rgb), 0.5);
+}
+
+.dystopian-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--toxic-red-rgb), 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.dystopian-button:hover::before {
+  left: 100%;
+}
+
+.acid-button {
+  background: rgba(var(--cyber-black-rgb), 0.8);
+  border: 1px solid rgba(var(--acid-green-rgb), 0.5);
+  color: hsl(var(--acid-green));
+  text-shadow: 0 0 5px rgba(var(--acid-green-rgb), 0.8);
+}
+
+.acid-button:hover {
+  background: rgba(var(--acid-green-rgb), 0.2);
+  box-shadow: 0 0 15px rgba(var(--acid-green-rgb), 0.5);
+}
+
+.acid-button::before {
+  background: linear-gradient(90deg, transparent, rgba(var(--acid-green-rgb), 0.2), transparent);
+}
+
+.warning-button {
+  background: rgba(var(--cyber-black-rgb), 0.8);
+  border: 1px solid rgba(var(--warning-yellow-rgb), 0.5);
+  color: hsl(var(--warning-yellow));
+  text-shadow: 0 0 5px rgba(var(--warning-yellow-rgb), 0.8);
+}
+
+.warning-button:hover {
+  background: rgba(var(--warning-yellow-rgb), 0.2);
+  box-shadow: 0 0 15px rgba(var(--warning-yellow-rgb), 0.5);
+}
+
+.warning-button::before {
+  background: linear-gradient(90deg, transparent, rgba(var(--warning-yellow-rgb), 0.2), transparent);
+}
+
+.dystopian-progress {
+  height: 15px;
+  background: rgba(var(--cyber-black-rgb), 0.8);
+  border: 1px solid rgba(var(--toxic-red-rgb), 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.dystopian-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(var(--toxic-red-rgb), 0.7), rgba(var(--acid-green-rgb), 0.7));
+  position: relative;
+}
+
+.dystopian-progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(var(--cyber-black-rgb), 0.1),
+    rgba(var(--cyber-black-rgb), 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.dystopian-terminal {
+  background: rgba(var(--cyber-black-rgb), 0.9);
+  border: 1px solid rgba(var(--acid-green-rgb), 0.5);
+  color: hsl(var(--acid-green));
+  font-family: monospace;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dystopian-terminal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(var(--acid-green-rgb), 0.05) 50%, transparent 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.dystopian-terminal-text {
+  position: relative;
+  display: inline-block;
+}
+
+.dystopian-terminal-text::after {
+  content: "_";
+  animation: broken-flicker 1s step-end infinite;
+}
+
+.barcode-container {
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+  background: rgba(var(--cyber-black-rgb), 0.8);
+}
+
+.barcode-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(var(--toxic-red-rgb), 0.5) 0px,
+    rgba(var(--toxic-red-rgb), 0.5) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.warning-stripes {
+  position: relative;
+}
+
+.warning-stripes::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(var(--warning-yellow-rgb), 0.1) 0px,
+    rgba(var(--warning-yellow-rgb), 0.1) 10px,
+    rgba(var(--toxic-red-rgb), 0.1) 10px,
+    rgba(var(--toxic-red-rgb), 0.1) 20px
+  );
+  z-index: -1;
+}
+
+.digital-noise {
+  position: relative;
+}
+
+.digital-noise::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 100;
+}
+
+.corrupted-text {
+  display: inline-block;
+  position: relative;
+  font-family: monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.corrupted-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 rgba(var(--toxic-red-rgb), 1);
+  top: 0;
+  color: transparent;
+  background: rgba(var(--toxic-red-rgb), 0.1);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: harsh-glitch 3s infinite linear alternate-reverse;
+}
+
+.corrupted-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 rgba(var(--acid-green-rgb), 1);
+  top: 0;
+  color: transparent;
+  background: rgba(var(--acid-green-rgb), 0.1);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: harsh-glitch 2s infinite linear alternate-reverse;
+}
+
+.dystopian-grid {
+  background-image: linear-gradient(rgba(var(--toxic-red-rgb), 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--toxic-red-rgb), 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dystopian-gradient {
+  background: linear-gradient(45deg, rgba(var(--toxic-red-rgb), 0.2), rgba(var(--acid-green-rgb), 0.2));
+}
+
+.dystopian-shadow {
+  box-shadow: 0 0 10px rgba(var(--toxic-red-rgb), 0.3), 0 0 20px rgba(var(--toxic-red-rgb), 0.2), 0 0 30px
+    rgba(var(--toxic-red-rgb), 0.1);
+}
+
+.acid-shadow {
+  box-shadow: 0 0 10px rgba(var(--acid-green-rgb), 0.3), 0 0 20px rgba(var(--acid-green-rgb), 0.2), 0 0 30px
+    rgba(var(--acid-green-rgb), 0.1);
+}
+
+.warning-shadow {
+  box-shadow: 0 0 10px rgba(var(--warning-yellow-rgb), 0.3), 0 0 20px rgba(var(--warning-yellow-rgb), 0.2), 0 0 30px
+    rgba(var(--warning-yellow-rgb), 0.1);
+}
+
+.digital-shadow {
+  box-shadow: 0 0 10px rgba(var(--digital-blue-rgb), 0.3), 0 0 20px rgba(var(--digital-blue-rgb), 0.2), 0 0 30px
+    rgba(var(--digital-blue-rgb), 0.1);
+}
+
+.dystopian-text-shadow {
+  text-shadow: 0 0 5px rgba(var(--toxic-red-rgb), 0.8), 0 0 10px rgba(var(--toxic-red-rgb), 0.5), 0 0 15px
+    rgba(var(--toxic-red-rgb), 0.3);
+}
+
+.acid-text-shadow {
+  text-shadow: 0 0 5px rgba(var(--acid-green-rgb), 0 0.3);
+}
+
+.acid-text-shadow {
+  text-shadow: 0 0 5px rgba(var(--acid-green-rgb), 0.8), 0 0 10px rgba(var(--acid-green-rgb), 0.5), 0 0 15px
+    rgba(var(--acid-green-rgb), 0.3);
+}
+
+.warning-text-shadow {
+  text-shadow: 0 0 5px rgba(var(--warning-yellow-rgb), 0.8), 0 0 10px rgba(var(--warning-yellow-rgb), 0.5), 0 0 15px
+    rgba(var(--warning-yellow-rgb), 0.3);
+}
+
+.digital-text-shadow {
+  text-shadow: 0 0 5px rgba(var(--digital-blue-rgb), 0.8), 0 0 10px rgba(var(--digital-blue-rgb), 0.5), 0 0 15px
+    rgba(var(--digital-blue-rgb), 0.3);
+}
+
+/* Animation classes */
+.animate-harsh-glitch {
+  animation: harsh-glitch 3s infinite;
+}
+
+.animate-digital-noise {
+  animation: digital-noise 0.5s infinite;
+}
+
+.animate-static-lines {
+  animation: static-lines 10s linear infinite;
+}
+
+.animate-broken-flicker {
+  animation: broken-flicker 4s linear infinite;
+}
+
+.animate-warning-flash {
+  animation: warning-flash 2s infinite;
+}
+
+.animate-data-corruption {
+  animation: data-corruption 3s ease-in-out infinite;
+}
+
+.animate-surveillance-scan {
+  animation: surveillance-scan 3s linear infinite;
+}
+
+.animate-toxic-pulse {
+  animation: toxic-pulse 2s ease-in-out infinite;
+}
+
+.animate-acid-pulse {
+  animation: acid-pulse 2s ease-in-out infinite;
+}
+
+.animate-digital-distortion {
+  animation: digital-distortion 2s ease-in-out infinite;
+}
+
+.animate-warning-blink {
+  animation: warning-blink 1s infinite;
+}
