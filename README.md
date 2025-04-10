@@ -1,126 +1,152 @@
-# FILESHARE: SECURE DATA TRANSMISSION PROTOCOL
 
-An open-source file sharing application with a cyberpunk dystopian interface. Built with Next.js, Supabase, and Tailwind CSS.
+# 🛡️ FILESHARE: Secure Data Transmission Protocol
 
-**[LIVE DEPLOYMENT](https://share.alora.is-a.dev/)**
+An open-source, cyberpunk-dystopian file sharing interface built with **Next.js**, **Supabase**, and **Tailwind CSS**.
+
+🌐 **[LIVE DEPLOYMENT →](https://share.alora.is-a.dev/)**
+
+---
+
+## 🖼️ Interface Preview
 
 ![FileShare Interface](https://lrwofykyjxqtsogrbksu.supabase.co/storage/v1/object/public/files/uploads/979d30a4-637f-45c0-a62a-9b26f085dfb2.png)
 ![Admin Panel](https://lrwofykyjxqtsogrbksu.supabase.co/storage/v1/object/public/files/uploads/c69be0a0-b1be-4bab-881e-129357c17a1e.png)
 
-## SYSTEM PROTOCOLS
+---
 
-- **CLIENT-SIDE ENCRYPTION**: Optional file encryption with password protection
-- **EXPIRATION SETTINGS**: Configure files to expire after a set time
-- **WIDE FORMAT SUPPORT**: Upload and share various file types (images, documents, etc.)
-- **ADMIN INTERFACE**: Basic file management and system configuration
-- **RESPONSIVE DESIGN**: Works across desktop and mobile devices
-- **OPTIMIZED TRANSFERS**: Efficient upload and download processing
+## ⚙️ System Protocols
 
-## TECHNICAL SPECIFICATIONS
+- 🔒 **Client-Side Encryption** — Password-protected optional encryption
+- ⏳ **Expiration Settings** — Auto-delete files after a configured time
+- 🗃️ **Wide Format Support** — Share documents, images, and more
+- 🛠️ **Admin Interface** — File and system management controls
+- 📱 **Responsive Design** — Mobile and desktop optimized
+- 🚀 **Optimized Transfers** — Fast uploads and downloads
 
-- **FRONTEND**: Next.js 14+ / React / TypeScript
-- **UI COMPONENTS**: Shadcn UI / Tailwind CSS with dystopian styling
-- **STORAGE**: Supabase Storage for file hosting
-- **DATABASE**: Supabase for metadata and settings
-- **DEPLOYMENT**: Suitable for Vercel or any Next.js host
+---
 
-## KNOWN LIMITATIONS
+## 🧰 Technical Specifications
 
-- **IP DETECTION**: Local development may have issues with IP-based file association
-- **STORAGE LIMITS**: Depends on your Supabase plan's storage capacity
-- **ENCRYPTION**: Client-side only; server-side encryption not implemented
-- **ERROR HANDLING**: Some edge cases may not be properly handled
+- **Frontend:** Next.js 14+, React, TypeScript  
+- **UI Components:** Shadcn UI, Tailwind CSS  
+- **Storage:** Supabase Storage  
+- **Database:** Supabase (PostgreSQL)  
+- **Deployment:** Ready for Vercel or any Next.js host  
 
-## INITIALIZATION SEQUENCE
+---
 
-### PREREQUISITES
+## ⚠️ Known Limitations
 
-- Node.js (v18+)
-- NPM or Yarn package management system
-- Supabase account (free tier works for testing)
+- 🌐 **IP Detection:** May not work accurately in local development
+- 💾 **Storage Limits:** Based on your Supabase plan
+- 🔐 **Encryption:** Only client-side encryption supported
+- ❗ **Error Handling:** Some edge cases may not be fully handled
 
-### SYSTEM INSTALLATION
+---
 
-1. Clone the repository to your local terminal:
-   ```bash
-   git clone https://github.com/yourusername/fileshare.git
-   cd fileshare
-   ```
+## 🛠️ Initialization Sequence
 
-2. Install required dependencies:
-   ```bash
-   npm install
-   ```
+### ✅ Prerequisites
 
-3. Configure environment variables by creating `.env.local`:
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   NEXT_PUBLIC_CRYPTO_KEY=your_encryption_key
-   ```
+- Node.js v18+
+- NPM or Yarn
+- Supabase account (Free tier is sufficient)
 
-4. Activate the development interface:
-   ```bash
-   npm run dev
-   ```
+### 📦 Installation
 
-5. Access the system at [http://localhost:3000](http://localhost:3000)
+```bash
+git clone https://github.com/yourusername/fileshare.git
+cd fileshare
+npm install
+```
 
-### SUPABASE CONFIGURATION
+### ⚙️ Environment Setup
+
+Create `.env.local` in the root directory:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_CRYPTO_KEY=your_encryption_key
+```
+
+### 🚀 Launch Development Server
+
+```bash
+npm run dev
+```
+
+Then open: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🧱 Supabase Configuration
 
 1. Create a new Supabase project
-2. Create a storage bucket named "files"
-3. Create a folder named "uploads" in the "files" bucket
-4. Configure the storage policies:
-   - For anonymous uploads: INSERT policy with condition `true`
-   - For public access: SELECT policy with condition `true`
+2. Add a **storage bucket** named `files`
+3. Inside the bucket, create a folder: `uploads`
+4. Set **Storage Policies**:
+   - `INSERT` policy for anonymous uploads → `true`
+   - `SELECT` policy for public access → `true`
 
-## OPERATIONAL PROCEDURES
+---
 
-### UPLOADING FILES
+## 📤 Uploading Files
 
-1. Navigate to the upload interface
-2. Drag and drop files or select them from your device
-3. Configure optional security settings:
+1. Open the upload interface
+2. Drag & drop or select files
+3. Configure security options:
    - Password protection
    - Encryption (optional)
    - Expiration date
-4. Click upload and wait for completion
-5. Copy and share the generated file links
+4. Click **Upload**
+5. Share the generated link
 
-### ADMIN INTERFACE
+---
 
-Access the admin dashboard at `/admin` to:
+## 🛡️ Admin Interface
 
-- View basic analytics
-- Manage uploaded files
-- Configure site settings
-- Access trash/deleted files
+Navigate to `/admin` to:
 
-## CUSTOMIZATION
+- View analytics
+- Manage files
+- Adjust settings
+- Access trash bin
 
-### CONFIGURATION OPTIONS
+---
 
-Modify the application through the admin interface:
+## 🎨 Customization Options
 
-- **Display Settings**: Site name, description, appearance
-- **Storage Settings**: Maximum file size, allowed types
-- **Security Options**: Access control settings
+Modify settings via the admin panel:
 
-## CONTRIBUTING
+- **Display Settings** — Site title, branding, UI theme
+- **Storage Settings** — Max file size, allowed file types
+- **Security Settings** — Access control configurations
 
-This project is open source. Contributions, bug reports, and feature requests are welcome. Please feel free to submit pull requests or open issues on GitHub.
+---
 
-## LICENSE
+## 🤝 Contributing
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Open-source and welcoming of contributions!  
+Report bugs, request features, or submit pull requests via GitHub.
 
-## ACKNOWLEDGMENTS
+---
 
-- Shadcn UI for component library
-- Vercel for hosting capabilities
-- Supabase for backend services
+## 📄 License
 
-## LIVE DEMO
+Licensed under the **MIT License**.  
+See the [LICENSE](./LICENSE) file for more info.
 
-Visit **[https://share.alora.is-a.dev/](https://share.alora.is-a.dev/)** to see the application in action. 
+---
+
+## 🙏 Acknowledgments
+
+- 🧩 **Shadcn UI** for sleek components  
+- 🚀 **Vercel** for deployment support  
+- 🧠 **Supabase** for the real-time backend
+
+---
+
+## 🔗 Live Demo
+
+🎥 See it in action: [https://share.alora.is-a.dev/](https://share.alora.is-a.dev/)
